@@ -1,0 +1,354 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700&display=swap');
+
+
+
+:root {
+    --warnaBackgroundUtama: #443627; /* warna coklat */
+    --warnaBackgroundKedua: #625547; /* warna coklt muda*/
+    
+    --warnaEmpat: #F2F6D0; /* warna hijau ke toska putih */
+  
+    --warnaTextUtama: #FFFFFF; /* putih */
+    --warnaTextKedua: #D98324; /* warna kuning gelap */
+    --warnaTextKetiga: #EFDCAB; /* warna beige/ kuning cerah ke krem */
+
+    --sectionPadding: 6rem 0;
+  
+    --itemBorderRadius: 0.7rem;
+  }
+
+html {
+  scroll-behavior: smooth; /* Membuat transisi scroll lebih halus */
+}
+  
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--warnaBackgroundUtama);
+  min-height: 900px;
+  font-family: 'roboto', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6, strong {
+  color: var(--warnaTextUtama);
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.9rem;
+}
+
+p, span, label, input, textarea, li {
+  color: var(--warnaTiga);
+}
+
+a {
+  text-decoration: none;
+}
+
+.container-utama {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width:1200px) {  
+  .container-utama {                   /* sebagai pengatur posisi navbar dalam segala kondisi luas layar */
+    width: 90%;
+  }
+}
+
+/* titles */
+
+.pre-title {
+  text-transform: uppercase; /* mengubah semua text dalam pre title jadi kapital semua */
+  letter-spacing: .5rem; /* jarak tiap karakter/ huruf */
+  color: var(--warnaTextKedua); /* warnanya */
+  position: relative;
+  padding-left: 40px; /* sedikit mendorong kedalam */
+  width: fit-content; /* lebar menyesuaikan konten */
+  font-weight: 400; /* ketebalan text */
+  font-size: .9rem; /* ukuran text */
+}
+
+.pre-title::before {
+  content: ""; /* Wajib ada content, meskipun kosong */
+  width: 30px; /* Lebar garis 30px */
+  height: 1px; /* Ketebalan garis 1px */
+  background: var(--warnaBackgroundKedua); /* Warna garis mengikuti variabel CSS */
+  position: absolute; /* Memposisikan secara absolut terhadap elemen induknya */
+  display: block; /* Menjadikan elemen ini sebagai blok agar ukuran bisa diatur */
+  left: 0; /* Menempatkan garis di paling kiri elemen .pre-title */
+  top: 50%; /* supaya posisi selalu setengah dari jarak atas */
+}
+
+
+/* logo dan navbar */
+
+.nav {
+  position: sticky;
+  top: 0;
+  background: rgba(48, 15, 5, 0.2); /* Transparan seperti kaca */
+  padding: 15px 20px;
+  border: 2px solid var(--warnaTextKedua); /* warna garis dari border */
+  backdrop-filter: blur(10px); /* Efek blur pada elemen di belakangnya */
+  -webkit-backdrop-filter: blur(10px); /* Untuk kompatibilitas Safari */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek floating */
+   /* Pastikan tetap di atas */
+}
+
+.nav .container-utama {
+  display: flex; /* supaya kesamping */
+  justify-content: space-between; /* memberikan jarak antara logo dan navbar */
+  padding: 1px 0; /* memberi jarak atas bawah 2rem/32px dan kanan kiri 0 */
+}
+
+.nav ul {
+  list-style: none; /* supaya titik atau list style dikiri hilang */
+  display: flex; /* supaya menyamping tiap list */
+  gap: 3rem; /* memberi jarak pada setiap list */
+  padding: 1rem; /* memberi jarak sedikit dari atas supaya sejajar dengan logo */
+}
+
+.logo {
+  display: flex; /* supaya menyamping */
+  justify-content: center; /* supaya ke tengah logonya */
+}
+
+nav ul li {
+  display: flex; /* menyamping */
+  align-items: center; /* menengah */
+}
+
+nav ul li a {
+  color: var(--warnaTextUtama); /* warna dari tiap list */
+  transition: all 0.3s ease;  /* Transisi halus untuk perubahan properti */
+}
+
+nav ul li a:hover {
+  color: var(--warnaTextKedua); /* Ubah warna teks saat hover */
+  transform: translateY(-3px);  /* Gerakan sedikit ke atas untuk efek timbul */
+}
+
+/* burger */
+.burger div {
+  width: 25px; /* panjangnya 25px */
+  height: 2px; /* tingginya 2px */
+  background-color: var(--warnaTextUtama); /* warna garisnya hitam */
+  margin: 7px; /* jarak tiap div/garis 7px */
+  transition: all .3s; /* transisi */
+  z-index: 99;  /* agar selalu muncul di pojok kanan atas */
+}
+
+.burger {
+  display: none;  /* Burger menu disembunyikan secara default */
+  z-index: 99;    /* Menempatkan burger menu di atas elemen lain */
+  position: fixed; /* Menjaga burger menu tetap di posisi yang sama saat scroll */
+  top: 33px;       /* Menentukan jarak dari atas layar */
+  right: 35px;     /* Menentukan jarak dari sisi kanan layar */
+}
+
+/* bagian hero */
+#hero {
+  height: 500px; /* tinggi dari hero dengan batas 720px */
+  display: grid; /* style atau tampilannya tipe grid */
+  grid-template-columns: 1fr 1fr; /* menjadi dua kolum karena ada 2 fr */
+  align-items: center;
+}
+
+.hero-nama {
+  font-size: 2.7rem; /* ukuran text */
+  font-weight: 700; /* ketebalan text */
+  margin: .5rem 0 1rem; /* jarak dri atas 5 rem, kiri kanan 0, bawah 1rem */ 
+}
+.hero-nama span {
+  color: var(--warnaTextKedua); /* warna span */
+}
+
+.hero-kiri {
+  color: var(--warnaTextUtama); /* warna semua text di hero kiri */
+}
+
+.hero-kiri p {
+  font-weight: 100; /* ketebalan text paragraf */
+}
+
+.hero-kiri span {
+  color: var(--warnaTextKedua); /* warna span di hero kiri */
+}
+
+.hero-kanan img {
+  width: 80%; /* ukuran gambar 80% dari maximal */
+}
+
+.hero-kanan {
+  display: flex;
+  justify-content: center;
+}
+
+/* medsos icon */
+.medsos-icon {
+  display: flex; /* Agar ikon sejajar */
+  gap: 5px; /* Jarak antar ikon */
+  margin-top: 5rem; /* Jarak dari hero-kiri */
+}
+
+.medsos-icon svg {
+  fill: var(--warnaTextUtama); /* Warna ikon putih */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.medsos-icon a:hover svg {
+  transform: scale(1.1); /* Efek membesar saat hover */
+  opacity: 0.8;
+}
+
+/* cv */
+.cv a {
+  color: var(--warnaTextUtama);
+}
+
+.cv span {
+  color: var(--warnaTextKedua);
+}
+
+/* section about me */
+
+#about-me {
+  background-color: var(--warnaBackgroundKedua); /* Warna coklat muda */
+  color: var(--warnaTextUtama); /* Warna teks */
+  text-align: center; /* teks ditengah atau align nya di center */
+  padding: 60px 50px; /* ukuran backgroundnya setinggi 60px dan sepanjang 50px */ 
+}
+
+#about-me h2 {
+  font-size: 2rem; /* ukuran dari teks About Me */
+  color: var(--warnaTextUtama); /* warna dari teks About Me */
+  margin-bottom: 10px; /* jarak teks About Me dengan benda dibawah */
+}
+
+#about-me .quote {
+  font-style: italic; /* style teks miring/italic buat quotes */
+  color: var(--warnaTextKedua); /* Warna teks quotes */
+  font-weight: bold; /* ketebalan teks setara bold */
+  margin-bottom: 20px; /* jarak dengan benda dibawah 20px */
+}
+
+#about-me .container {
+  max-width: 800px; /* batas luas dari container sebesar 800px */
+  margin: auto; /* jarak antar tag otomatis */
+  line-height: 2rem; /* jarak antar baris */
+  font-size: 1.1em; /* ukuran font */
+}
+
+#about-me strong {
+  color: var(--warnaTextKetiga); /* Warna kuning pucat */
+  font-weight: bold; /* text tebal */
+}
+
+#about-me h2 {
+  font-size: 2rem; /* ukuran font */
+  color: var(--warnaTextUtama);  /* warna font */
+  margin-bottom: 10px; /* jarak kebawah */
+  position: relative; /* untuk menambahkan garis bawah */
+  display: inline-block; /* agar garis bawah menyesuaikan lebar teks */
+}
+
+#about-me h2::after {
+  content: ""; /* wajiba ada content ketika menggunakan :after walaupun kosong */
+  display: block; /* agar tampil sebagai blok */
+  width: 200px; /* Panjang garis */
+  height: 2px; /* Ketebalan garis */
+  background-color: #D98324; /* Warna oranye */
+  margin: 1px auto 0; /* atas 1 px kanan kiri auto bawah 0 */
+}
+
+#about-me p {
+  line-height: 1.5rem; /* jarak antar baris */
+  font-weight: lighter; /* teks jadi lebih tipis */
+}
+
+/* Skills and Education Section */
+
+
+
+#skills {
+  padding: var(--sectionPadding); /* luas padding */
+  margin-left: 5rem;
+}
+
+.section-title {
+  margin-bottom: 2rem;
+}
+
+.skills-grid {
+  display: grid; /* tampilan grid */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* auto */
+  gap: 3rem;
+}
+
+.education {
+  display: flex;
+  gap: 2rem;
+}
+
+.education p {
+  color: var(--warnaTextKedua);
+}
+
+.education .line {
+  padding: 0 .7rem;  
+}
+
+.education .line div {
+  width: 2px;
+  height: 100%;
+  background: var(--warnaBackgroundKedua);
+  position: relative;
+}
+
+.education-info p {
+  margin: .6rem 0 1.4rem;
+}
+
+.education-years {
+  margin-bottom: 3rem;
+}
+
+/* titik di baris */
+
+.education .line div:before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: var(--warnaBackgroundKedua);
+  border-radius: 50%;
+  position: absolute;
+  left: -6px;
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 1.5rem;
+}
+
+.skills-right {
+  line-height: 2rem;
+  padding: 0 1rem;
+}
+
+.skills-right ul li {
+  color: var(--warnaTextUtama);
+}
+
+.skills-right p {
+  font-weight: lighter;
+  color: var(--warnaTextKetiga);
+}
