@@ -14,7 +14,7 @@ const navSlide = () => {
   
 // clear form before unload 
 window.onbeforeunload = () => {
-  for (const form of document.getElementByTagName("form")) {
+  for (const form of document.getElementsByTagName("form")) {
     form.reset();
   }
 };
