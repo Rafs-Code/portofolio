@@ -7,6 +7,7 @@
 :root {
     --warnaBackgroundUtama: #443627; /* warna coklat */
     --warnaBackgroundKedua: #625547; /* warna coklt muda*/
+    --warnaBackgroundTransparan: rgba(48, 15, 5, 0.2); /* Transparan seperti kaca */
     
     --warnaEmpat: #F2F6D0; /* warna hijau ke toska putih */
   
@@ -56,6 +57,7 @@ a {
 .container-utama {
   width: 1200px;
   margin: 0 auto;
+  padding: var(--sectionPadding);
 }
 
 @media screen and (max-width:1200px) {  
@@ -96,11 +98,12 @@ a {
   top: 0;
   background: rgba(48, 15, 5, 0.2); /* Transparan seperti kaca */
   padding: 15px 20px;
-  border: 2px solid var(--warnaTextKedua); /* warna garis dari border */
+  border-bottom: 2px solid var(--warnaTextKedua); /* warna garis dari border */
+  border-top: 2px solid var(--warnaTextKedua); /* warna garis dari border */
   backdrop-filter: blur(10px); /* Efek blur pada elemen di belakangnya */
   -webkit-backdrop-filter: blur(10px); /* Untuk kompatibilitas Safari */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek floating */
-   /* Pastikan tetap di atas */
+  z-index: 1000;
 }
 
 .nav .container-utama {
@@ -124,6 +127,7 @@ a {
 nav ul li {
   display: flex; /* menyamping */
   align-items: center; /* menengah */
+  margin-top: 2%;
 }
 
 nav ul li a {
@@ -153,6 +157,7 @@ nav ul li a:hover {
   top: 33px;       /* Menentukan jarak dari atas layar */
   right: 35px;     /* Menentukan jarak dari sisi kanan layar */
 }
+
 
 /* bagian hero */
 #hero {
@@ -351,4 +356,106 @@ nav ul li a:hover {
 .skills-right p {
   font-weight: lighter;
   color: var(--warnaTextKetiga);
+}
+
+/* Contact Section */
+#contact {
+  padding: var(--sectionPadding);
+  background: var(--warnaBackgroundKedua);
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+}
+
+.contact-form div {
+  margin-bottom: 1.4rem;
+  margin-left: 5rem;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: .75rem 1.3rem;
+  font-family: "Roboto", sans-serif;
+  background: var(--warnaBackgroundTransparan);
+  border: 1px solid var(--warnaTextKedua);
+  border-radius: 3px;
+  resize: none; /* agar textarea tidak bisa diatur */
+}
+
+.contact-form input::placeholder, .contact-form textarea::placeholder {
+  color: var(--warnaTextKetiga);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border: 1px solid #7d7d7d;
+}
+
+.contact-form input, textarea {
+  color: var(--warnaTextUtama);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: .75rem 1.3rem;
+  background-color: var(--warnaBackgroundTransparan);
+  color: var(--warnaTextUtama);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.btn-submit:hover {
+  background: #473521;
+}
+
+.contact-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-item-icon {
+  background: var(--warnaEmpat);
+  /* background: var(--thirdBackgroundColor); */
+  width: fit-content;
+  margin: auto 0;
+  padding: .6rem .8rem;
+  border-radius: 0.5rem;
+  
+}
+
+.contact-item-icon svg {
+  fill: var(--warnaTextKedua);
+}
+
+/* Footer Section */
+footer {
+  padding: 4rem 0;
+  background: var(--warnaBackgroundTransparan);
+  text-align: center;
+}
+
+footer p {
+  color: var(--warnaTextUtama);
+}
+
+.footer-icons {
+  margin-bottom: 1rem;
+}
+
+.footer-icons a {
+  margin: 0 0.5rem;
+}
+
+.footer-icons svg {
+  fill: var(--warnaTextUtama);
+}
+
+.footer-icons a:hover svg {
+  fill: #000;
 }
