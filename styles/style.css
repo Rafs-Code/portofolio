@@ -19,11 +19,19 @@
   
     --itemBorderRadius: 0.7rem;
   }
-
-html {
-  scroll-behavior: smooth; /* Membuat transisi scroll lebih halus */
-}
   
+/* overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2); /* Warna semitransparan */
+  backdrop-filter: blur(10px);    /* Efek blur */
+  z-index: 5;                     /* Pastikan overlay berada di atas konten utama */
+  display: none;                  /* Disembunyikan secara default */
+}
 
 * {
   margin: 0;
@@ -94,16 +102,24 @@ a {
 /* logo dan navbar */
 
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
   background: rgba(48, 15, 5, 0.2); /* Transparan seperti kaca */
-  padding: 15px 20px;
+  padding: 10px 15px;
+  right: 0%;
+  height: 15%;
+  width: 100%;
   border-bottom: 2px solid var(--warnaTextKedua); /* warna garis dari border */
   border-top: 2px solid var(--warnaTextKedua); /* warna garis dari border */
-  backdrop-filter: blur(10px); /* Efek blur pada elemen di belakangnya */
-  -webkit-backdrop-filter: blur(10px); /* Untuk kompatibilitas Safari */
+  backdrop-filter: blur(5px); /* Efek blur pada elemen di belakangnya */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek floating */
   z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-utama {
+  padding: var(--sectionPadding);
 }
 
 .nav .container-utama {
@@ -122,12 +138,18 @@ a {
 .logo {
   display: flex; /* supaya menyamping */
   justify-content: center; /* supaya ke tengah logonya */
+  margin-left: 7%;
+  margin-top: 1%;
+}
+
+nav {
+  margin-right: 14%;
 }
 
 nav ul li {
   display: flex; /* menyamping */
   align-items: center; /* menengah */
-  margin-top: 2%;
+  margin-top: 5%;
 }
 
 nav ul li a {
@@ -154,7 +176,7 @@ nav ul li a:hover {
   display: none;  /* Burger menu disembunyikan secara default */
   z-index: 99;    /* Menempatkan burger menu di atas elemen lain */
   position: fixed; /* Menjaga burger menu tetap di posisi yang sama saat scroll */
-  top: 33px;       /* Menentukan jarak dari atas layar */
+  top: 33%;       /* Menentukan jarak dari atas layar */
   right: 35px;     /* Menentukan jarak dari sisi kanan layar */
 }
 
@@ -435,7 +457,7 @@ nav ul li a:hover {
 
 /* Footer Section */
 footer {
-  padding: 4rem 0;
+  padding: 3rem 0;
   background: var(--warnaBackgroundTransparan);
   text-align: center;
 }
@@ -453,9 +475,12 @@ footer p {
 }
 
 .footer-icons svg {
-  fill: var(--warnaTextUtama);
+  fill: var(--warnaTextUtama); /* Warna ikon putih */
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .footer-icons a:hover svg {
-  fill: #000;
+  transform: scale(1.1); /* Efek membesar saat hover */
+  opacity: 0.8;
 }
+
