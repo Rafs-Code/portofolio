@@ -41,12 +41,13 @@
     height: 100vh;
     flex-direction: column;
     background: rgba(48, 15, 5, 0.2); /* Konversi hex #443627 ke RGB dengan transparansi 70% */
-    backdrop-filter: blur(5px); /* Efek blur untuk elemen di belakang */
-    -webkit-backdrop-filter: blur(5px); /* Untuk browser Webkit (Safari) */
+    backdrop-filter: blur(10px); /* Efek blur untuk elemen di belakang */
+    /* -webkit-backdrop-filter: blur(5px); */
     border-left: 1px solid var(--warnaTextKedua);
     z-index: 9;
     transform: translateX(100%);
     transition: 0.2s ease-in-out;
+    margin-right: 0%;
   }
 
   nav ul {
@@ -54,16 +55,15 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    /* background: rgba(48, 15, 5, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(5px); */
   }
 
   .nav-active {
     transform: translateX(0);
   }
   /* End of Navigation */
-
-  :root {
-    --sectionPadding: 4rem 0;
-  }
 
   /* Titles */
   .section-title {
@@ -126,6 +126,14 @@
 
   .contact-left {
     margin-right: 5rem;
+  }
+
+  .nav {
+    padding: 20px 15px;
+  }
+
+  .logo {
+    align-items: center;
   }
 }
 
